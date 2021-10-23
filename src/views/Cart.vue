@@ -8,23 +8,41 @@
                     <th>Quantity</th>
                     <th>Unit price</th>
                     <th>Total</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody v-if="!reRender">
-                <tr v-for="cardProduct in cartProducts" :key="cardProduct.id">
-                    <td>{{ cardProduct.product.name }}</td>
-                    <td><ProductCounter @qty-updated-cart="reRenderTable()" :product="cardProduct.product" :quantityCart="cardProduct.quantity"/></td>
-                    <td>{{ Math.round(cardProduct.product.price_kg * cardProduct.product.net_weight * 100) / 100 }}€ /kg</td>
-                    <td>{{ cardProduct.total }}€</td>
+            <template v-for="(categoryProducts,index) in categorizeProductsBySupplier()">
+                <tr>
+                    <h5>{{ getSupplierById(index)['name'] }}</h5>
                 </tr>
+                <tr v-for="product in categoryProducts">
+                    <td>{{ product.product.name }}</td>
+                    <td><ProductCounter @qty-updated-cart="reRenderTable()" :product="product.product" :quantityCart="product.quantity"/></td>
+                    <td>{{ Math.round(product.product.price_kg * product.product.net_weight * 100) / 100 }}€ /kg</td>
+                    <td>{{ Math.round(product.total * 100) / 100 }}€</td>
+                </tr>
+                <tr>
+                    <td  class="border-0"></td>
+                    <td  class="border-0"></td>
+                    <td  class="border-0"></td>
+                    <td  class="border-0">
+                        <span class="flex-">
+                            <h5>Total: {{ getTotalCartSupplier(categoryProducts) }}€</h5>
+                            <button class="btn btn-lg btn-primary float-end">Check out</button>
+                        </span>
+                    </td>
+                </tr>
+            </template>
             </tbody>
         </table>
     </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 import ProductCounter from '../components/products/ProductCounter';
+import { groupBy } from '@/utils/helpers';
 
 export default {
   name: 'cart',
@@ -40,8 +58,27 @@ export default {
       total: (state) => state.cart.total,
       cartProducts: (state) => state.cart.products,
     }),
+    ...mapGetters({
+      suppliers: 'suppliers/suppliers',
+    }),
   },
   methods: {
+    getTotalCartSupplier(products) {
+      let total = 0;
+      /* eslint-disable */
+      products.map((product) => total += product.total);
+      return Math.round(total * 100) / 100;
+    },
+    getSupplierById(supplierId) {
+      console.log('supId', supplierId);
+      if (!supplierId) {
+        return { name: 'Unknown' };
+      }
+      return this.suppliers.find((supplier) => supplier.$id === supplierId);
+    },
+    categorizeProductsBySupplier() {
+      return groupBy(Object.values(this.cartProducts), 'supplier_id');
+    },
     reRenderTable() {
       this.reRender = true;
       this.reRender = false;

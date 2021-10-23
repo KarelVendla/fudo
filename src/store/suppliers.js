@@ -9,12 +9,13 @@ export default {
   actions: {
     getSuppliers() {
       const suppliers = DataService.getSuppliers();
+      console.log('getSUppliers', suppliers);
       Supplier.create({ data: suppliers });
     },
   },
   getters: {
     suppliers() {
-      Supplier.all();
+      return Supplier.all();
     },
   },
 };

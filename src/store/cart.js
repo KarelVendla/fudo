@@ -16,7 +16,12 @@ export default {
       state.products = products;
     },
     updateProductQuantity(state, payload) {
-      state.products[payload.id] = { quantity: payload.quantity, total: payload.total, product: payload.product };
+      state.products[payload.id] = {
+        quantity: payload.quantity,
+        total: payload.total,
+        product: payload.product,
+        supplier_id: payload.supplier_id,
+      };
       /* eslint-disable */
       let totalQty = 0;
       let total = 0;

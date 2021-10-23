@@ -32,10 +32,9 @@ export default {
         quantity: quantity,
         total: this.product.price_kg * (quantity * this.product.net_weight),
         product: this.product,
+        supplier_id: this.product.supplier ? this.product.supplier.id : null,
       });
-      if (this.quantityCart) {
-        this.$emit('qty-updated-cart');
-      }
+      this.$emit('qty-updated-cart');
     },
   },
 };
