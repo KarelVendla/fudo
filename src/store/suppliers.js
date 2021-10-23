@@ -9,7 +9,6 @@ export default {
   actions: {
     getSuppliers() {
       const suppliers = DataService.getSuppliers();
-      console.log('getSUppliers', suppliers);
       Supplier.create({ data: suppliers });
     },
   },

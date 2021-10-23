@@ -70,7 +70,6 @@ export default {
       return Math.round(total * 100) / 100;
     },
     getSupplierById(supplierId) {
-      console.log('supId', supplierId);
       if (!supplierId) {
         return { name: 'Unknown' };
       }
