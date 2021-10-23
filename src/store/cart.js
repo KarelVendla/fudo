@@ -16,7 +16,6 @@ export default {
       state.products = products;
     },
     updateProductQuantity(state, payload) {
-      console.log(payload);
       state.products[payload.id] = { quantity: payload.quantity, total: payload.total, product: payload.product };
       /* eslint-disable */
       let totalQty = 0;
@@ -27,7 +26,6 @@ export default {
       }
       state.productCount = totalQty;
       state.total = Math.round(total * 100) / 100;
-      console.log('productCount', state.productCount);
     },
   },
   getters: {},
