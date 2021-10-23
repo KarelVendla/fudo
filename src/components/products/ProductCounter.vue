@@ -33,6 +33,9 @@ export default {
         total: this.product.price_kg * (quantity * this.product.net_weight),
         product: this.product,
       });
+      if (this.quantityCart) {
+        this.$emit('qty-updated-cart');
+      }
     },
   },
 };

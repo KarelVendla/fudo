@@ -10,10 +10,10 @@
                     <th>Total</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody v-if="!reRender">
                 <tr v-for="cardProduct in cartProducts" :key="cardProduct.id">
                     <td>{{ cardProduct.product.name }}</td>
-                    <td><ProductCounter :product="cardProduct.product" :quantityCart="cardProduct.quantity"/></td>
+                    <td><ProductCounter @qty-updated-cart="reRenderTable()" :product="cardProduct.product" :quantityCart="cardProduct.quantity"/></td>
                     <td>{{ Math.round(cardProduct.product.price_kg * cardProduct.product.net_weight * 100) / 100 }}€ /kg</td>
                     <td>{{ cardProduct.total }}€</td>
                 </tr>
@@ -29,12 +29,23 @@ import ProductCounter from '../components/products/ProductCounter';
 export default {
   name: 'cart',
   components: { ProductCounter },
+  data() {
+    return {
+      reRender: false,
+    };
+  },
   computed: {
     ...mapState({
       productCount: (state) => state.cart.productCount,
       total: (state) => state.cart.total,
       cartProducts: (state) => state.cart.products,
     }),
+  },
+  methods: {
+    reRenderTable() {
+      this.reRender = true;
+      this.reRender = false;
+    },
   },
 };
 </script>
