@@ -1,0 +1,18 @@
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity-selector {
+  input {
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    border: 1px solid #F3F3F3;
+  }
+}

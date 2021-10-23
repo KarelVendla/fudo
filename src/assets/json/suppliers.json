@@ -1,0 +1,35 @@
+{
+  "suppliers": [
+    {
+      "id": 1,
+      "name": "FruitXpress",
+      "logo": "https://www.fruitxpress.ee/skin/frontend/universal/default/images/logo.svg"
+    },
+    {
+      "id": 2,
+      "name": "Kaupmees",
+      "logo": "https://www.kaupmees.ee/assets/logo-93714ca3082b9a417c82e7761ea68661764d99ca8a327c15af1399354fdd4f78.png"
+    },
+    {
+      "id": 3,
+      "name": "Maks & Moorits",
+      "logo": "https://maksjamoorits.ee/wp-content/themes/maks_moorits/images/logo.png"
+    },
+    {
+      "id": 4,
+      "name": "Rakvere lihatööstus",
+      "logo": "https://rakverelk.ee/wp-content/themes/rakvere/img/logo@2x.png"
+    },
+    {
+      "id": 5,
+      "name": "Tere Piimatööstus",
+      "logo": "https://www.tere.eu/images/tere-logo.png"
+    },
+    {
+      "id": 6,
+      "name": "Valio",
+      "logo": "https://static.valio.fi/ClientApp/build/static/media/valioLogo.e2c6eb2d.png"
+    }
+  ]
+}
+

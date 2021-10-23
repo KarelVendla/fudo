@@ -1,0 +1,41 @@
+{
+  "categories": [
+    {
+      "code": "fruit",
+      "name": "Fruit"
+    },
+    {
+      "code": "storable",
+      "name": "Storable"
+    },
+    {
+      "code": "milk",
+      "name": "Milk"
+    },
+    {
+      "code": "vegetable",
+      "name": "Vegetable"
+    },
+    {
+      "code": "alcohol",
+      "name": "Alcohol"
+    },
+    {
+      "code": "fish",
+      "name": "Fish"
+    },
+    {
+      "code": "meat",
+      "name": "Meat"
+    },
+    {
+      "code": "poultry",
+      "name": "Poultry"
+    },
+    {
+      "code": "salad",
+      "name": "Salad"
+    }
+  ]
+}
+
