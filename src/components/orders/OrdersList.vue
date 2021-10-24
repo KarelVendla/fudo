@@ -7,16 +7,14 @@
                     <th>Delivery date</th>
                     <th>Supplier</th>
                     <th>Total</th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tr v-for="order in orders">
+                    <td>{{ order.status }}</td>
+                    <td>{{ order.delivered_at }}</td>
+                    <td>{{ order.supplier ? order.supplier.name : '' }}</td>
+                    <td>{{ order.total_cost }}€</td>
                 </tr>
             </tbody>
         </table>
@@ -24,5 +22,13 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters } from 'vuex';
+
+export default {
+  computed: {
+    ...mapGetters({
+      orders: 'orders/orders',
+    }),
+  },
+};
 </script>

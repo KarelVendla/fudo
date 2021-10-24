@@ -29,7 +29,7 @@
                     <td  class="border-0">
                         <span class="flex-">
                             <h5>Total: {{ getTotalCartSupplier(categoryProducts) }}€</h5>
-                            <button class="btn btn-lg btn-primary float-end">Check out</button>
+                            <button class="btn btn-lg btn-primary float-end" @click="createOrder(getTotalCartSupplier(categoryProducts),getSupplierById(index),categoryProducts)">Check out</button>
                         </span>
                     </td>
                 </tr>
@@ -63,6 +63,16 @@ export default {
     }),
   },
   methods: {
+    createOrder(totalCost, supplier, products) {
+      if (this.$store.dispatch('orders/createOrder', {
+        total_cost: totalCost,
+        supplier: supplier,
+        products: products,
+      })) {
+        this.$store.dispatch('cart/removeFromCart', products);
+        this.$router.push({ name: 'my-orders' });
+      }
+    },
     getTotalCartSupplier(products) {
       let total = 0;
       /* eslint-disable */
@@ -70,10 +80,8 @@ export default {
       return Math.round(total * 100) / 100;
     },
     getSupplierById(supplierId) {
-      if (!supplierId) {
-        return { name: 'Unknown' };
-      }
-      return this.suppliers.find((supplier) => supplier.$id === supplierId);
+      const supplier = this.suppliers.find((supplier) => supplier.$id === supplierId)
+      return supplier ? supplier : { name: 'Unknown' };
     },
     categorizeProductsBySupplier() {
       return groupBy(Object.values(this.cartProducts), 'supplier_id');
