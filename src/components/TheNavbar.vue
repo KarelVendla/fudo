@@ -2,7 +2,7 @@
     <div>
         <BNavbar toggleable="lg" fixed="top">
             <BNavbarBrand @click="$router.push({ name: 'products' })">
-                <img src="logo.png" class="navbar-logo"/>
+                <img src="logo_white_t.png" class="navbar-logo"/>
             </BNavbarBrand>
             <BNavbarToggle target="nav-collapse"></BNavbarToggle>
 

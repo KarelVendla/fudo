@@ -1,7 +1,13 @@
 .navbar {
   padding: 5px 25px 5px 25px;
 
+  &-nav {
+    padding-left: 150px;
+  }
+  
   &-logo {
-    width: 80px;
+    width: 150px;
+    top: 10px;
+    position: absolute;
   }
 }
