@@ -14,7 +14,7 @@
                 </BNavbarNav>
             </BCollapse>
 
-            <div>
+            <div style="font-size:20px;">
                 <span v-if="totalCost" style="color:white;padding-right:10px;">{{ totalCost }}€</span>
                 <button @click="$router.push({ name: 'cart' })" class="btn btn-default">
                     <span style="color:white;">{{ productCount }}</span>
