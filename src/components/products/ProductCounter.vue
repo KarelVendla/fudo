@@ -1,11 +1,11 @@
 <template>
     <div class="quantity-selector">
         <button class="btn btn-default btn-number  p-0" @click="updateQuantity(quantity+1)" type="button">
-            <i class="material-icons" style="color:black;">add</i>
+            <i class="material-icons">add</i>
         </button>
         <input class="text-center" type="number" name="quantity" :value="quantity" @input="updateQuantity(parseInt($event.target.value))">
         <button class="btn btn-default btn-number p-0" :disabled="quantity === 0" @click="updateQuantity(quantity-1)" type="button">
-            <i class="material-icons" style="color:black;">remove</i>
+            <i class="material-icons">remove</i>
         </button>
     </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <BNavbar toggleable="lg" type="dark" variant="dark">
+        <BNavbar toggleable="lg" fixed="top">
             <BNavbarBrand @click="$router.push({ name: 'products' })">
                 <img src="logo.png" class="navbar-logo"/>
             </BNavbarBrand>
@@ -14,11 +14,11 @@
                 </BNavbarNav>
             </BCollapse>
 
-            <div>
-                <span v-if="totalCost" style="color:white;padding-right:10px;">{{ totalCost }}€</span>
+            <div class="cart-info">
+                <span v-if="totalCost" style="padding-right:10px;">{{ totalCost }}€</span>
                 <button @click="$router.push({ name: 'cart' })" class="btn btn-default">
-                    <span style="color:white;">{{ productCount }}</span>
-                    <i class="material-icons" style="color:white;">shopping_cart</i>
+                    <span>{{ productCount }}</span>
+                    <i class="material-icons">shopping_cart</i>
                 </button>
             </div>
         </BNavbar>

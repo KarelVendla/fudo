@@ -1,7 +1,10 @@
 <template>
-    <div class="row justify-content-between">
-        <CategoriesFilter class="col-lg-4"/>
-        <input class="col-lg-7 search-field" @input="updateFilters({ searchTerm: $event.target.value })" type="text" placeholder="Search for a product"/>
+    <div class="row justify-content-between searchbar">
+        <CategoriesFilter class="col-lg-6"/>
+        <div class="col-lg-6">
+        <i class="material-icons">search</i>
+        <input class="col-lg-12 search-field" @input="updateFilters({ searchTerm: $event.target.value })" type="search" placeholder="Search for a product"/>
+        </div>
     </div>
 </template>
 

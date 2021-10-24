@@ -1,6 +1,7 @@
 <template>
-    <div style="border-radius: 10px;" class="card col-sm-6 col-md-4 col-lg-2 p-0">
-        <img style="width: 150px;height: 150px;margin-top:20px;" v-if="product.image" :src="'/images/' + product.image" class="card-img-top mx-auto" alt="Lorem Picsum">
+    <div class="card col-sm-6 col-md-4 col-lg-2 p-0">
+        <div>
+        <img v-if="product.image" :src="'/images/' + product.image" class="card-img-top mx-auto" alt="Lorem Picsum">
             <div class="card-body">
                 <div class="d-flex flex-row">
                     <div class="col-6" style="font-weight: 600;">
@@ -19,6 +20,7 @@
                     </div>
                     <ProductCounter class="mt-3 text-center" :product="product"/>
             </div>
+        </div>
         </div>
 </template>
 
