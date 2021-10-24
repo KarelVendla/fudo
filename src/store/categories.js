@@ -14,7 +14,7 @@ export default {
   },
   getters: {
     categories() {
-      Category.all();
+      return Category.all();
     },
   },
 };
