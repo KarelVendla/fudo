@@ -12,7 +12,6 @@ export default {
   },
   mutations: {
     updateFilterParams(state, props) {
-      console.log(props);
       state.filters = { ...props };
     },
   },
